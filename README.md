@@ -1,3 +1,3 @@
-# files
+# Dialer
 
-Cross paltform mobile file browser
+Cross paltform dialer app. 
