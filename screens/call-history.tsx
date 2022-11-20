@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default class Recent extends React.Component {
+export default class CallHistory extends React.Component {
   render(): React.ReactNode {
     return (
       <View style={styles.container}>
-        <Text>Recent Files</Text>
+        <Text>Call History</Text>
       </View>
     );
   }

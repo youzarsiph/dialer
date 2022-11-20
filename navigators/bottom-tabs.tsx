@@ -1,6 +1,7 @@
 import React from "react";
-import Home from "../screens/home";
-import Recent from "../screens/recent";
+import Dialer from "../screens/dialer";
+import Contacts from "../screens/contacts";
+import CallHistory from "../screens/call-history";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -10,40 +11,44 @@ export default class BottomTabNavigator extends React.Component {
 
     return (
       <Tabs.Navigator
-        initialRouteName="Home"
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+        initialRouteName="Dialer"
+        screenOptions={({ route }) => {
+          return {
+            tabBarIcon: ({ focused, color, size }) => {
+              // Icon name
+              let name;
 
-            if (route.name === "Home") {
-              iconName = focused ? "folder" : "folder-outline";
-            } else if (route.name === "Recent") {
-              iconName = "history";
-            }
+              if (route.name === "Dialer") {
+                name = focused ? "phone-dial" : "phone-dial-outline";
+              } else if (route.name === "Contacts") {
+                name = focused ? "contacts" : "contacts-outline";
+              } else {
+                name = "history";
+              }
 
-            return (
-              <MaterialCommunityIcons
-                name={iconName}
-                size={size}
-                color={color}
-              />
-            );
-          },
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
-        })}
+              return (
+                <MaterialCommunityIcons name={name} size={size} color={color} />
+              );
+            },
+            tabBarActiveTintColor: "indigo",
+            tabBarInactiveTintColor: "gray",
+          };
+        }}
       >
         <Tabs.Screen
-          name={"Home"}
-          component={Home}
-          options={{
-            title: "Browse",
-          }}
+          name={"Dialer"}
+          component={Dialer}
+          options={{ title: "Dialer" }}
         />
         <Tabs.Screen
-          name={"Recent"}
-          component={Recent}
-          options={{ title: "Recent Files" }}
+          name={"Contacts"}
+          component={Contacts}
+          options={{ title: "Contacts" }}
+        />
+        <Tabs.Screen
+          name={"Call"}
+          component={CallHistory}
+          options={{ title: "Call History" }}
         />
       </Tabs.Navigator>
     );
