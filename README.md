@@ -1,3 +1,3 @@
 # Dialer
 
-Cross paltform dialer app. 
+Dialer app for Android.
